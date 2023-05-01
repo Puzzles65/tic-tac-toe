@@ -28,15 +28,16 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 10vmin);
     grid-template-rows: repeat(3, 10vmin);
+    background-color: darkgrey;
     margin-top: 4vmin;
  } 
  #board > div {
-    border: 0.1vmin solid black;
+    border: 0.2vmin solid black;
  }
 
  #board > div:hover {
     transition: transform 150ms ease-in;
-    border-top-color: red;
+    border-color: red;
  }
 
  button {
