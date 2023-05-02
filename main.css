@@ -35,10 +35,18 @@ body {
     border: 0.2vmin solid black;
  }
 
- #board > div:hover {
+ /* #board > div:hover {
     transition: transform 150ms ease-in;
     border-color: red;
- }
+ } */
+
+ #board > div.avail {
+    cursor: pointer;
+  }
+  
+  #board > div.avail:hover {
+    border-color: grey;
+  }
 
  button {
     margin-top: 6vmin; 

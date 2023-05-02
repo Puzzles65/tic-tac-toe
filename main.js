@@ -3,7 +3,7 @@ const COLORS = {
     'null': 'white',
     '1': 'red',
     '-1': 'black',
-}
+};
 // combinations of winning posibilities
 const winningComb = [
     [0, 1, 2],
@@ -23,7 +23,7 @@ let winner;
 
 
 //cached elements
-const messageEl = document.querySelctor('h1');
+const messageEl = document.querySelector('h1');
 const resetGameBtn = document.querySelector('button');
 // event listeners
 document.getElementById('board').addEventListener('click', handleMove);
@@ -33,7 +33,7 @@ resetGameBtn.addEventListener('click', init);
 
 init();
 function init(){
-board = new Array(9).fill(null);
+board = [null, null, null, null, null, null, null, null, null];
 
 turn = 1;
 winner = null;
@@ -44,7 +44,7 @@ render();
 function handleMove(evt){
     const idx = parseInt(evt.target.id.replace('sq-', ''));
 
-    if(isNan(idx) || board[idx] || winner) return;
+    if(isNaN(idx) || board[idx] || winner) return;
 
     board[idx] = turn;
     turn *= -1;
@@ -55,7 +55,7 @@ function handleMove(evt){
 function getWinner(){
     for(let i = 0; i<winningComb.length; i++){
         if(Math.abs(board[winningComb[i][0]] + board[winningComb[i][1]] +
-            board[winnningComb[i][2]]) === 3) return board[winningComb[i][0]];
+            board[winningComb[i][2]]) === 3) return board[winningComb[i][0]];
     }
 
     if(board.includes(null)) return null;
@@ -78,7 +78,7 @@ function renderBoard(){
 // function to show message
 function renderMessage(){
     if(winner === 'T'){
-      messageEl.innerText = "It's a Tie!!!";
+      messageEl.innerHTML = "It's a Tie!!!";
     }else if(winner){
       messageEl.innerHTML = `<span style="color:
       ${COLORS[winner]}">${COLORS[winner].toUpperCase()}</span>'s Wins!`;
